@@ -25,6 +25,7 @@ export default function Home() {
         <h1>Hellooo</h1>
         <br />
         <button onClick={handleClick}>test</button>
+        <button onClick={handleLogin}>login</button>
       </main>
     </>
   );
