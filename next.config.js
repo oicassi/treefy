@@ -1,23 +1,21 @@
 const STATE = 'fuckshit';
-const BASE_URL = process.env.SPOTIFY_AUTH_ENDPOINT;
+const SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+const SPOTIFY_SCOPES = 'user-top-read user-read-recently-played user-read-private';
 
 const getRedirectUrl = () => {
   const queries = {
     response_type: 'token',
     client_id: encodeURIComponent(process.env.CLIENT_ID),
-    scope: encodeURIComponent(process.env.SCOPES),
+    scope: encodeURIComponent(SPOTIFY_SCOPES),
     redirect_uri: encodeURIComponent(process.env.REDIRECT_URI),
     state: STATE,
   };
-
-  console.log(queries);
 
   const queryString = Object.keys(queries).reduce((acc, curr, i) => {
     return `${acc}${i ? '&' : '?'}${curr}=${queries[curr]}`;
   }, '');
 
-  const url = `${BASE_URL}${queryString}`;
-  console.log('URL:', url);
+  const url = `${SPOTIFY_AUTH_ENDPOINT}${queryString}`;
   return url;
 };
 

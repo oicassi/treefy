@@ -1,15 +1,18 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
+import { storage } from '@/utils';
 
 export default function Home() {
-  const handleClick = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/api/test');
-      const data = await response.json();
-      console.log('DATA:', data);
-    } catch (error) {
-      console.log('erro: ', error.message);
-    }
+  const [storedData, setStoredData] = useState('');
+
+  const handleStoreData = () => {
+    storage.setItem('testezinho', 'pipipi popopo');
+  };
+
+  const handleGetData = () => {
+    const s = storage.getItem('testezinho');
+    setStoredData(s);
   };
 
   return (
@@ -22,10 +25,13 @@ export default function Home() {
       </Head>
       <main>
         <Image priority src='/images/profile.jpeg' height={144} width={144} alt='profile pic' />
-        <h1>Hellooo</h1>
+
+        <button onClick={handleStoreData}>Store</button>
         <br />
-        <button onClick={handleClick}>test</button>
-        <button onClick={handleLogin}>login</button>
+        <button onClick={handleGetData}>GetData</button>
+        <br />
+        <br />
+        <p>{typeof storedData !== 'string' ? JSON.stringify(storedData) : storedData}</p>
       </main>
     </>
   );
