@@ -1,7 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Button from '@/components/Button';
+import Footer from '@/components/Footer';
 
 export default function Home() {
+  const handleClick = () => {
+    console.log('clicked');
+  };
   return (
     <>
       <Head>
@@ -13,7 +18,15 @@ export default function Home() {
       <main>
         <h1>Teste</h1>
         <p>Testezinho</p>
+        <Button onClick={handleClick}>
+          <div>a</div>
+        </Button>
+        <Button variant='secondary' float={false} onClick={handleClick}>
+          Teste2
+        </Button>
+        <a href='#'>pipipipi</a>
       </main>
+      <Footer />
     </>
   );
 }

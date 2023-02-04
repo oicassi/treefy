@@ -1,2 +1,34 @@
 $font-lato: 'Lato';
 $font-alatsi: 'Alatsi';
+
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+$color-primary-regular: #578ead;
+$color-primary-light: #6ca4c5;
+$color-primary-dark: #467996;
+
+$color-neutral-high-pure: #ffffff;
+$color-neutral-high-regular: #f2f2f2;
+
+$color-neutral-low-pure: #000000;
+$color-neutral-low-regular: #26192d;
+$color-neutral-low-light: #3d3c3c;
+
+$spacing-quarck: 4px;
+$spacing-nano: 8px;
+$spacing-xxs: 16px;
+$spacing-xs: 24px;
+$spacing-sm: 32px;
+$spacing-md: 40px;
+$spacing-lg: 48px;
+$spacing-xl: 56px;
+$spacing-xxl: 60px;
+$spacing-giant: 64px;
+
+$border-radius-pill: 500px;
+
+$shadow-0: 0px 2px 1px rgba(0, 0, 0, 0.2);
+$shadow-1: 0px 2px 4px rgba(0, 0, 0, 0.3);
+$shadow-2: 0px 2px 6px rgba(0, 0, 0, 0.4);

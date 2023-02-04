@@ -1,0 +1,10 @@
+.footer {
+  min-height: 160px;
+  background-color: $color-neutral-high-regular;
+  width: 100%;
+  text-align: center;
+
+  @include above($mobile) {
+    min-height: 142px;
+  }
+}

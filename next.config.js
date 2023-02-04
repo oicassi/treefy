@@ -1,3 +1,5 @@
+const path = require('path');
+
 const STATE = 'fuckshit';
 const SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const SPOTIFY_SCOPES = 'user-top-read user-read-recently-played user-read-private';
@@ -21,6 +23,11 @@ const getRedirectUrl = () => {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+    excludePaths: [path.join(__dirname, 'styles/base')],
+    prependData: `@import '${__dirname}/src/styles/base/basic-imports.scss';`,
+  },
   reactStrictMode: true,
   async redirects() {
     return [
