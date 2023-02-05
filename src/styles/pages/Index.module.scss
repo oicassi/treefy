@@ -1,0 +1,30 @@
+.container {
+  flex: 1;
+  background: linear-gradient(180deg, #9edc6e 0%, #ffffff 4.46%);
+
+  @include above($mobile) {
+    background: linear-gradient(180deg, #9edc6e 0%, #ffffff 7.46%);
+  }
+
+  .textImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: $spacing-sm;
+
+    @include above($mobile) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: $spacing-xs;
+    }
+  }
+
+  .highlight {
+    color: $color-primary-regular;
+    font-weight: 700;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}

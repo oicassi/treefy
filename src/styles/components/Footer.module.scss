@@ -2,11 +2,9 @@
   background-color: $color-neutral-high-regular;
   width: 100%;
   text-align: center;
-  margin-top: $spacing-xxs;
   min-height: 160px;
 
   @include above($mobile) {
-    margin-top: $spacing-xs;
     min-height: 142px;
   }
 

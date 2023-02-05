@@ -1,0 +1,16 @@
+.appContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: $spacing-xxs;
+
+  @include above($mobile) {
+    padding-bottom: $spacing-xs;
+  }
+}

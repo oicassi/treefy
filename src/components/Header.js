@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '@/styles/components/Header.module.scss';
-import utilStyles from '@/styles/base/utils.module.scss';
+import utilsStyles from '@/styles/base/utils.module.scss';
 
 const Header = ({ isHome = true }) => {
   const [firstRender, setFirstRender] = useState(true);
@@ -62,7 +62,7 @@ const Header = ({ isHome = true }) => {
         newStartPoints.push(ep1);
         newStartPoints.push(ep2);
       }
-      if (length < 10) ctx.strokeStyle = '#2DB584';
+      if (length < 10) ctx.strokeStyle = '#209B4A';
       else ctx.strokeStyle = '#8A5630';
       ctx.stroke();
       startPoints = newStartPoints;
@@ -82,9 +82,9 @@ const Header = ({ isHome = true }) => {
   return (
     <header className={styles.header}>
       <div className={styles.grass} />
-      <div className={`${utilStyles.container} ${styles.container}`}>
+      <div className={`${utilsStyles.container} ${styles.container}`}>
         <h1 className={styles.title}>treefy</h1>
-        <canvas id='header-canvas' width='144' height='162' />
+        <canvas id='header-canvas' width='144' height='162' className={styles.canvas} />
       </div>
     </header>
   );

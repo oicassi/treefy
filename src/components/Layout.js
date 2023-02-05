@@ -1,16 +1,14 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-// import styles from 'styles/components/Layout.module.css';
-// import utilStyles from 'styles/utils.module.css';
+import Header from './Header';
+import Footer from './Footer';
 
-const name = 'Cassiano Kruchelski';
+import styles from '@/styles/components/Layout.module.scss';
+
 export const siteTitle = 'treefy';
 
 const Layout = ({ children, home }) => {
   return (
-    // <div className={styles.container}>
-    <div>
+    <>
       <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta
@@ -26,49 +24,12 @@ const Layout = ({ children, home }) => {
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
-      {/* <header className={styles.header}> */}
-      <header>
-        {/* {home ? (
-          <>
-            <Image
-              priority
-              src='/images/profile.jpeg'
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={`Profile image of ${name}`}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href='/'>
-              <Image
-                priority
-                src='/images/profile.jpeg'
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt={`Profile image of ${name}`}
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href='/' className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )} */}
-        <span>Header</span>
-      </header>
-      <main>{children}</main>
-      {!home && (
-        // <div className={styles.backToHome}>
-        <div>
-          <Link href='/'>← Back to home</Link>
-        </div>
-      )}
-    </div>
+      <div className={styles.appContainer}>
+        <Header />
+        <main className={styles.mainContainer}>{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
