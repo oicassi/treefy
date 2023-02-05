@@ -1,10 +1,36 @@
 .footer {
-  min-height: 160px;
   background-color: $color-neutral-high-regular;
   width: 100%;
   text-align: center;
+  margin-top: $spacing-xxs;
+  min-height: 160px;
 
   @include above($mobile) {
+    margin-top: $spacing-xs;
     min-height: 142px;
+  }
+
+  .innerContainer {
+    padding-top: $spacing-sm;
+    color: $color-neutral-high-dark;
+  }
+
+  .text {
+    max-width: 100%;
+    font-size: $font-size-xs;
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-top: $spacing-quarck;
+    }
+
+    @include above($mobile) {
+      max-width: 386px;
+      font-size: $font-size-sm;
+
+      &:not(:first-child) {
+        margin-top: $spacing-nano;
+      }
+    }
   }
 }

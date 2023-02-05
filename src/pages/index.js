@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Button from '@/components/Button';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Button from '@/components/Button';
 
 export default function Home() {
   const handleClick = () => {
@@ -15,6 +16,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <Header />
       <main>
         <h1>Teste</h1>
         <p>Testezinho</p>

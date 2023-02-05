@@ -1,0 +1,56 @@
+%headerTitle {
+  font-family: $font-alatsi;
+  color: $color-neutral-low-light;
+  font-size: 48px;
+
+  @include above($mobile) {
+    font-size: 86px;
+  }
+}
+
+.header {
+  width: 100%;
+  background: linear-gradient(180deg, #6fc2f1 0%, rgba(217, 217, 217, 0) 75%);
+  min-height: 136px;
+  height: 136px;
+  position: relative;
+
+  @include above($mobile) {
+    min-height: 254px;
+    height: 254px;
+  }
+
+  .grass {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    left: 0;
+    bottom: 30px;
+    background: linear-gradient(180deg, rgba(156, 186, 133, 0.01) 20%, #99dc65 100%);
+  }
+
+  .container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    @extend %headerTitle;
+
+    animation: titleFadeIn 800ms forwards;
+  }
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0.1;
+    letter-spacing: -38px;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0;
+  }
+}

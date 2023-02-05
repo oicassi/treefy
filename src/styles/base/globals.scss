@@ -8,7 +8,7 @@ body,
 button {
   font-family: $font-lato, Helvetica, sans-serif;
   font-size: clamp(14px, calc(100vw / 1050 * 10), 20px);
-  line-height: 1;
+  line-height: 20px;
 }
 
 p,
@@ -24,6 +24,7 @@ h6 {
 a {
   transition: all 150ms;
   color: $color-primary-regular;
+  font-weight: 700;
 
   &:hover {
     color: $color-primary-light;
