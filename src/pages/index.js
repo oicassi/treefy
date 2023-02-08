@@ -3,7 +3,8 @@ import Layout from '@/components/Layout';
 import Button from '@/components/Button';
 import styles from '@/styles/pages/index.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
-
+import { helpers } from '@/utils';
+const { If } = helpers;
 export default function Home() {
   const handleClick = () => {
     console.log('clicked');
@@ -32,7 +33,13 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className={utilsStyles.container}>opa</section>
+        <section className={utilsStyles.container}>
+          <If condition={false} renderIf={<p>opa</p>} renderElse={<p>ih</p>} />
+
+          <If condition={true}>
+            <p>aiaiai</p>
+          </If>
+        </section>
       </div>
     </Layout>
   );

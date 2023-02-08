@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { hooks } from '@/utils';
 import styles from '@/styles/components/Header.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
 
 const Header = ({ isHome = true }) => {
-  const [firstRender, setFirstRender] = useState(true);
+  const isMobile = hooks.useMediaQuery('mobile');
+
   const getEndpoint = (x, y, a, length) => {
     var epx = x + length * Math.cos((a * Math.PI) / 180);
     var epy = y + length * Math.sin((a * Math.PI) / 180);
@@ -72,19 +74,22 @@ const Header = ({ isHome = true }) => {
   };
 
   useEffect(() => {
-    if (!firstRender) return;
-    setFirstRender(false);
     setTimeout(() => {
       drawTree();
     }, 300);
-  }, []);
+  }, [isMobile]);
 
   return (
     <header className={styles.header}>
       <div className={styles.grass} />
       <div className={`${utilsStyles.container} ${styles.container}`}>
         <h1 className={styles.title}>treefy</h1>
-        <canvas id='header-canvas' width='144' height='162' className={styles.canvas} />
+        <canvas
+          id='header-canvas'
+          width={isMobile ? '72' : '144'}
+          height={isMobile ? '82' : '162'}
+          className={styles.canvas}
+        />
       </div>
     </header>
   );
