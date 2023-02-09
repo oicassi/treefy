@@ -56,6 +56,9 @@ export default function Home() {
             </a>
             . You can also check the <strong>treefy’s</strong> <Link href='/privacy'>privacy section</Link>.
           </p>
+          <Button tag='a' href='https://www.google.com' target='_blank'>
+            Google
+          </Button>
         </section>
       </div>
     </Layout>

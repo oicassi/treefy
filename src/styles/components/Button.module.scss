@@ -8,10 +8,14 @@
   padding: 0 $spacing-sm;
   border-radius: $border-radius-pill;
   cursor: pointer;
+  text-decoration: none;
+  min-width: 200px;
+  width: 100%;
   font-size: 14px;
   min-height: $spacing-md;
 
   @include above($mobile) {
+    width: max-content;
     font-size: 16px;
     min-height: $spacing-lg;
   }
@@ -22,6 +26,7 @@
 
     &:hover {
       background-color: $color-primary-light;
+      color: $color-neutral-high-pure;
     }
 
     &:focus-visible {
