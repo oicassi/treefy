@@ -10,6 +10,7 @@ $color-primary-light: #6ca4c5;
 $color-primary-dark: #467996;
 
 $color-neutral-high-pure: #ffffff;
+$color-neutral-high-light: #dadada;
 $color-neutral-high-regular: #f2f2f2;
 $color-neutral-high-dark: #666666;
 
@@ -36,7 +37,9 @@ $font-size-lg: 24px;
 $font-size-xl: 30px;
 
 $border-radius-pill: 500px;
+$border-radius-1: 6px;
 
 $shadow-0: 0px 2px 1px rgba(0, 0, 0, 0.2);
 $shadow-1: 0px 2px 4px rgba(0, 0, 0, 0.3);
 $shadow-2: 0px 2px 6px rgba(0, 0, 0, 0.4);
+$shadow-spread: 0px 5px 10px rgba(0, 0, 0, 0.11);

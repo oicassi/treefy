@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 @mixin above($width) {
   @media only screen and (min-width: #{$width + 1px}) {
     @content;
@@ -7,5 +9,15 @@
 @mixin below($width) {
   @media only screen and (max-width: #{$width}) {
     @content;
+  }
+}
+
+%title-2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: $font-size-md;
+
+  @include above($mobile) {
+    font-size: $font-size-lg;
   }
 }

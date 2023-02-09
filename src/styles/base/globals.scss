@@ -7,8 +7,8 @@ html,
 body,
 button {
   font-family: $font-lato, Helvetica, sans-serif;
-  font-size: clamp(14px, calc(100vw / 1050 * 10), 20px);
-  line-height: 20px;
+  font-size: clamp($font-size-xs, calc(100vw / 900 * 10), $font-size-sm);
+  line-height: clamp(20px, calc(100vw / 510 * 10), 22px);
 }
 
 p,
