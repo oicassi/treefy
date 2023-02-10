@@ -5,17 +5,21 @@
   justify-content: center;
   transition: all 150ms;
   border: none;
-  padding: 0 $spacing-sm;
   border-radius: $border-radius-pill;
   cursor: pointer;
   text-decoration: none;
   min-width: 200px;
-  width: 100%;
+  width: max-content;
+  padding: 0 $spacing-xs;
   font-size: 14px;
   min-height: $spacing-md;
 
+  @include above($tablet) {
+    padding: 0 $spacing-sm;
+  }
+
   @include above($mobile) {
-    width: max-content;
+    padding: 0 $spacing-lg;
     font-size: 16px;
     min-height: $spacing-lg;
   }

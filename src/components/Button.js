@@ -1,4 +1,5 @@
 import styles from '@/styles/components/Button.module.scss';
+import Link from 'next/link';
 
 const Button = ({
   variant = 'primary',
@@ -6,16 +7,16 @@ const Button = ({
   float = true,
   position = '',
   tag = 'button',
-  className,
+  className = '',
   children,
   ...props
 }) => {
-  const Tag = tag;
+  const Tag = tag === 'Link' ? Link : tag;
   return (
     <Tag
       className={`${styles.button} ${styles[`button--${variant}`]} ${fluid ? styles['button--fluid'] : ''} ${
         float ? styles['button--float'] : ''
-      } ${styles[`button--${position}`]} ${className}`}
+      } ${styles[`button--${position}`] ?? ''} ${className}`}
       {...props}
     >
       {children}

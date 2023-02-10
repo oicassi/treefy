@@ -12,6 +12,16 @@
   }
 }
 
+%headerTitle {
+  font-family: $font-alatsi;
+  color: $color-neutral-low-light;
+  font-size: 48px;
+
+  @include above($mobile) {
+    font-size: 86px;
+  }
+}
+
 %title-2 {
   margin: 0;
   font-weight: 700;
@@ -19,5 +29,23 @@
 
   @include above($mobile) {
     font-size: $font-size-lg;
+  }
+}
+
+%content-container {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(180deg, #9edc6e 0%, #ffffff 8.46%);
+
+  @include above($mobile) {
+    background: linear-gradient(180deg, #9edc6e 0%, #ffffff 10.46%);
+  }
+
+  section:not(:first-of-type) {
+    margin-top: $spacing-xs;
+
+    @include above($tablet) {
+      margin-top: $spacing-sm;
+    }
   }
 }

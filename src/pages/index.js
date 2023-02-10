@@ -7,7 +7,7 @@ import { useMediaQuery } from '@/utils/hooks';
 import styles from '@/styles/pages/index.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
 
-export default function Home() {
+const Home = () => {
   const isMobile = useMediaQuery('mobile');
   return (
     <Layout>
@@ -56,11 +56,17 @@ export default function Home() {
             </a>
             . You can also check the <strong>treefy’s</strong> <Link href='/privacy'>privacy section</Link>.
           </p>
-          <Button tag='a' href='https://www.google.com' target='_blank'>
-            Google
-          </Button>
+        </section>
+        <section className={utilsStyles.container}>
+          <div className={styles.buttonContainer}>
+            <Button tag='Link' href='/login' fluid={isMobile} position='center'>
+              LOGIN WITH SPOTIFY
+            </Button>
+          </div>
         </section>
       </div>
     </Layout>
   );
-}
+};
+
+export default Home;

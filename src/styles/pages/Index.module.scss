@@ -1,18 +1,5 @@
 .container {
-  flex: 1;
-  background: linear-gradient(180deg, #9edc6e 0%, #ffffff 8.46%);
-
-  @include above($mobile) {
-    background: linear-gradient(180deg, #9edc6e 0%, #ffffff 10.46%);
-  }
-
-  section:not(:first-of-type) {
-    margin-top: $spacing-xs;
-
-    @include above($tablet) {
-      margin-top: $spacing-sm;
-    }
-  }
+  @extend %content-container;
 
   .textImage {
     display: flex;
@@ -69,6 +56,26 @@
 
     @include above($mobile) {
       margin-top: $spacing-xxs;
+    }
+  }
+
+  .buttonContainer {
+    padding: $spacing-nano $spacing-xxs;
+    background-color: $color-neutral-high-pure;
+    box-shadow: 0px -2px 10px #cacaca;
+    border-top: 1px solid $color-neutral-high-light;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    @include above($mobile) {
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+      border-top: none;
+      width: 100%;
+      position: relative;
     }
   }
 }

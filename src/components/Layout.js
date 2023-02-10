@@ -6,7 +6,7 @@ import styles from '@/styles/components/Layout.module.scss';
 
 export const siteTitle = 'treefy';
 
-const Layout = ({ children, home }) => {
+const Layout = ({ children, isHome = true }) => {
   return (
     <>
       <Head>
@@ -25,7 +25,7 @@ const Layout = ({ children, home }) => {
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <div className={styles.appContainer}>
-        <Header />
+        <Header isHome={isHome} />
         <main className={styles.mainContainer}>{children}</main>
         <Footer />
       </div>
