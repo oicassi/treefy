@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
-import { hooks } from '@/utils';
-import { canvas, helpers } from '@/utils';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { canvas, helpers, hooks } from '@/utils';
 import styles from '@/styles/components/Header.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
-import Link from 'next/link';
 const { If } = helpers;
 
 const Header = ({ isHome = true }) => {
+  const [actualPath, setActualPath] = useState('/');
   const isMobile = hooks.useMediaQuery('mobile');
+
+  const routes = [
+    { path: '/', text: 'home' },
+    { path: '/privacy', text: 'privacy' },
+  ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,6 +20,10 @@ const Header = ({ isHome = true }) => {
       canvas.drawTree(canvasElement);
     }, 300);
   }, [isMobile]);
+
+  useEffect(() => {
+    setActualPath(document.location.pathname);
+  }, []);
 
   return (
     <header className={`${styles.header} ${!isHome ? styles['header--notHome'] : ''}`}>
@@ -34,9 +43,20 @@ const Header = ({ isHome = true }) => {
             </>
           }
           renderElse={
-            <Link href='/' className={styles['title--notHome']}>
-              treefy
-            </Link>
+            <>
+              <Link href='/' className={styles['title--notHome']}>
+                treefy
+              </Link>
+              <ul className={styles.linksContainer}>
+                {routes.map(({ path, text }) => {
+                  return (
+                    <Link key={text} href={path} className={actualPath === path ? styles.linkSelected : ''}>
+                      {text}
+                    </Link>
+                  );
+                })}
+              </ul>
+            </>
           }
         />
       </div>

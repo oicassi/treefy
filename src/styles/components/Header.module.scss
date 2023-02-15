@@ -53,6 +53,26 @@
     position: relative;
     bottom: -10px;
   }
+
+  .linksContainer {
+    list-style: none;
+    display: flex;
+    gap: $spacing-xs;
+
+    a {
+      text-decoration: none;
+      font-size: $font-size-sm;
+      color: $color-neutral-low-regular;
+
+      &:hover {
+        color: $color-neutral-high-dark;
+      }
+    }
+  }
+
+  .linkSelected {
+    border-bottom: 2px solid $color-primary-regular;
+  }
 }
 
 @keyframes titleFadeIn {

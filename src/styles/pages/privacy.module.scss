@@ -1,3 +1,49 @@
 .container {
   @extend %content-container;
+  padding-top: $spacing-sm;
+
+  @include above($mobile) {
+    padding-top: $spacing-xs;
+  }
+
+  .title {
+    @extend %title-2;
+  }
+
+  .highlight {
+    color: $color-primary-regular;
+    font-weight: 700;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  p {
+    margin-top: $spacing-nano;
+
+    @include above($mobile) {
+      margin-top: $spacing-xxs;
+    }
+  }
+
+  .buttonContainer {
+    padding: $spacing-nano $spacing-xxs;
+    background-color: $color-neutral-high-pure;
+    box-shadow: 0px -2px 10px #cacaca;
+    border-top: 1px solid $color-neutral-high-light;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    @include above($mobile) {
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+      border-top: none;
+      width: 100%;
+      position: relative;
+    }
+  }
 }
