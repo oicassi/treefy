@@ -1,9 +1,9 @@
 .container {
   @extend %content-container;
-  padding-top: $spacing-sm;
+  padding-top: $spacing-xs;
 
   @include above($mobile) {
-    padding-top: $spacing-xs;
+    padding-top: $spacing-sm;
   }
 
   .title {

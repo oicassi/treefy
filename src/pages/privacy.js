@@ -26,7 +26,7 @@ const Privacy = () => {
             and use of information regarding your Spotify account username and data for your recent top artists.
           </p>
           <p>
-            None of the data used by <span className={styles.highlight}>treefy</span> is{' '}
+            <strong>None of the data</strong> used by <span className={styles.highlight}>treefy</span> is{' '}
             <strong>stored, collected and is not shared with any third parties</strong>. All information is used solely
             for displaying your treefy.
           </p>
@@ -38,13 +38,6 @@ const Privacy = () => {
             </a>{' '}
             is a guide for doing so.
           </p>
-        </section>
-        <section className={utilsStyles.container}>
-          <div className={styles.buttonContainer}>
-            <Button tag='Link' href='/login' fluid={isMobile} position='center'>
-              LOGIN WITH SPOTIFY
-            </Button>
-          </div>
         </section>
       </div>
     </Layout>

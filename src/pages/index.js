@@ -35,8 +35,8 @@ const Home = () => {
               priority
               src='/images/about.png'
               className={styles.textImage__image}
-              height={isMobile ? 113 : 160}
-              width={isMobile ? 294 : 415}
+              height={isMobile ? 113 : 180}
+              width={isMobile ? 294 : 466}
               alt='Diagram explaining that the recent top artists data come from spotify to be used in treefy'
             />
           </div>
