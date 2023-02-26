@@ -1,0 +1,12 @@
+.container {
+  @extend %content-container;
+  padding-top: $spacing-xs;
+
+  @include above($mobile) {
+    padding-top: $spacing-sm;
+  }
+
+  .title {
+    @extend %title-2;
+  }
+}

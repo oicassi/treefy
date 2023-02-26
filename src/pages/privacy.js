@@ -1,13 +1,9 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Button from '@/components/Button';
 import Layout from '@/components/Layout';
-import { useMediaQuery } from '@/utils/hooks';
 import styles from '@/styles/pages/privacy.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
 
 const Privacy = () => {
-  const isMobile = useMediaQuery('mobile');
   return (
     <Layout isHome={false}>
       <Head>
