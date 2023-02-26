@@ -9,6 +9,7 @@ import utilsStyles from '@/styles/base/utils.module.scss';
 
 const Home = () => {
   const isMobile = useMediaQuery('mobile');
+
   return (
     <Layout>
       <Head>

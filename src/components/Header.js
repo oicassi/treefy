@@ -1,18 +1,32 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { canvas, helpers, hooks } from '@/utils';
+import { canvas, helpers, hooks, storage } from '@/utils';
 import styles from '@/styles/components/Header.module.scss';
 import utilsStyles from '@/styles/base/utils.module.scss';
+
 const { If } = helpers;
+const SPOTIFY_TOKEN = process.env.NEXT_PUBLIC_TOKEN_KEY;
 
 const Header = ({ isHome = true }) => {
+  const [routes, setRoutes] = useState([]);
   const [actualPath, setActualPath] = useState('/');
   const isMobile = hooks.useMediaQuery('mobile');
 
-  const routes = [
-    { path: '/', text: 'home' },
-    { path: '/privacy', text: 'privacy' },
-  ];
+  const mountRoutes = () => {
+    const routesToMount = [
+      { path: '/', text: 'home' },
+      { path: '/privacy', text: 'privacy' },
+    ];
+
+    if (!!storage.getItem(SPOTIFY_TOKEN)) {
+      routesToMount.push({
+        path: '/field',
+        text: 'your treefy field',
+      });
+    }
+
+    setRoutes(routesToMount);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,13 +36,14 @@ const Header = ({ isHome = true }) => {
   }, [isMobile]);
 
   useEffect(() => {
+    mountRoutes();
     setActualPath(document.location.pathname);
   }, []);
 
   return (
     <header className={`${styles.header} ${!isHome ? styles['header--notHome'] : ''}`}>
       <div className={styles.grass} />
-      <div className={`${utilsStyles.container} ${styles.container}`}>
+      <div className={`${utilsStyles.container} ${isHome ? styles.container : styles['container--notHome']}`}>
         <If
           condition={isHome}
           renderIf={

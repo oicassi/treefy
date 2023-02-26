@@ -30,6 +30,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &--notHome {
+      @extend .container;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $spacing-xxs;
+
+      @include below($mobile) {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: $spacing-nano;
+        padding: $spacing-nano 0;
+      }
+    }
   }
 
   .title {
