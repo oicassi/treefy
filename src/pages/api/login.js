@@ -1,6 +1,10 @@
-const querystring = require('querystring');
+import * as querystring from 'querystring'
 
-const STATE = 'fuckshit';
+import { cookies, data } from '@/utils';
+const { setResponseCookies } = cookies
+
+
+const STATE = data.generateRandomString()
 const SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const SPOTIFY_SCOPES = 'user-top-read user-read-recently-played user-read-private';
 
@@ -13,6 +17,8 @@ const handler = (req, res) => {
     state: STATE,
   };
 
+  const cookies = { state: STATE}
+  setResponseCookies(res, cookies)
   res.redirect(308, `${SPOTIFY_AUTH_ENDPOINT}?${querystring.stringify(queries)}`);
 };
 

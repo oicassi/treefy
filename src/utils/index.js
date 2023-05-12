@@ -5,5 +5,6 @@ import * as helpers from "./helpers";
 import * as hooks from "./hooks";
 import * as canvas from "./canvas";
 import * as data from "./data";
+import * as cookies from "./cookies";
 
-export { storage, time, browser, helpers, hooks, canvas, data };
+export { storage, time, browser, helpers, hooks, canvas, data, cookies };

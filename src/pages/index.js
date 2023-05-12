@@ -60,7 +60,7 @@ const Home = () => {
         </section>
         <section className={utilsStyles.container}>
           <div className={styles.buttonContainer}>
-            <Button tag='Link' href='/login' fluid={isMobile} position='center'>
+            <Button tag='a' href='api/login' fluid={isMobile} position='center'>
               LOGIN WITH SPOTIFY
             </Button>
           </div>
