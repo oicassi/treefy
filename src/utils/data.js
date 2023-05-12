@@ -10,4 +10,9 @@ const generateRandomString = (length = 8) => {
   return charArray.join('')
 }
 
-export { normalizeSpotifyData, generateRandomString };
+const serializeData = (obj) => {
+  const data = Object.keys(obj).map((key) => `${key}=${obj[key]}`)
+  return data.join('&')
+}
+
+export { normalizeSpotifyData, generateRandomString, serializeData };
