@@ -2,28 +2,18 @@ import axios from 'axios'
 import * as CryptoJS from 'crypto-js';
 const SECRET_KEY = process.env.NEXT_PUBLIC_APP_SECRET;
 
-import { cookies, data } from '@/utils';
+import { data } from '@/utils';
 
-const { setResponseCookies } = cookies
 const { serializeData } = data
-const TOKEN_URL = 'https://accounts.spotify.com/api/token'
+const REFRESH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
 
 const handler = async (req, res) => {
-  const { code, state } = req.query;
-
-  const { state: storedState } = req.cookies
-  if (!code || !state || !storedState || storedState !== state) {
-    console.log("ERRO:", { code, state, storedState })
-    res.redirect(308, '/')
-  }
-
-  setResponseCookies(res, {})
-
   try {
+    const { refresh_token } = req.query;
+
     const requestBody = {
-      code,
-      grant_type: 'authorization_code',
-      redirect_uri: process.env.REDIRECT_URI,
+      refresh_token,
+      grant_type: 'refresh_token',
     }
   
     const headers = {
@@ -32,19 +22,18 @@ const handler = async (req, res) => {
     }
     
     const response = await axios.post(
-      TOKEN_URL,
+      REFRESH_TOKEN_URL,
       serializeData(requestBody),
       { headers }
     )
+
+    const { access_token, expires_in } = response.data
   
-    const { access_token, expires_in, refresh_token } = response.data
     console.log({access_token, expires_in, refresh_token })
+
     const query = { accessToken: access_token, expiration: new Date().valueOf() + expires_in, refreshToken: refresh_token }
-    console.log("query", query)
-    const serializedQuery =encodeURIComponent(CryptoJS.AES.encrypt(serializeData(query), SECRET_KEY).toString())
      
-    res.redirect(308, `/auth?data=${serializedQuery}`)
-    
+    res.send(query)
   } catch (error) {
     console.log("---------")
     console.log('ERROOOO')

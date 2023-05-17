@@ -20,7 +20,7 @@ const Header = ({ isHome = true }) => {
 
     if (!!storage.getItem(SPOTIFY_TOKEN)) {
       routesToMount.push({
-        path: '/field',
+        path: '/trees',
         text: 'your treefy field',
       });
     }

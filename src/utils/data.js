@@ -15,4 +15,26 @@ const serializeData = (obj) => {
   return data.join('&')
 }
 
-export { normalizeSpotifyData, generateRandomString, serializeData };
+const prepareSpotifyData = (rawData) => {
+  const data = {}
+  rawData.forEach(({ artists }) => {
+    const { external_urls, id, name } = artists[0]
+    if (!data[id]) {
+      data[id] = {
+        url: external_urls.spotify || '',
+        name,
+        id,
+        count: 0
+      }
+    }
+    data[id].count += 1
+  })
+
+  const array = Object.keys(data).map((item) => data[item])
+  array.sort((a, b) => {
+    if (b.count < a.count ) return -1
+  })
+  return array
+}
+
+export { normalizeSpotifyData, generateRandomString, serializeData, prepareSpotifyData };

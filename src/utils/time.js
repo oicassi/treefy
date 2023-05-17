@@ -2,4 +2,9 @@ const getActualYear = () => {
   return new Date().getFullYear();
 };
 
-export { getActualYear };
+const isExpired = (value) => {
+  console.log({date: new Date().valueOf(), value})
+  return new Date().valueOf() > value
+}
+
+export { getActualYear, isExpired };
