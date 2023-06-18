@@ -10,7 +10,7 @@ const { getItem, setItem } = storage
 const SECRET_KEY = process.env.NEXT_PUBLIC_APP_SECRET;
 const SPOTIFY_TOKEN = process.env.NEXT_PUBLIC_TOKEN_KEY;
 
-const Field = () => {
+const Auth = () => {
   const router = useRouter()
 
   const extractDataFromUrl = () => {
@@ -38,4 +38,4 @@ const Field = () => {
   );
 };
 
-export default Field;
+export default Auth;

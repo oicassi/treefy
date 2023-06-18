@@ -28,7 +28,7 @@ const Trees = () => {
 
   const init = async () => {
     // se não tiver token apresenta tela de erro
-    if (!isLogged) {
+    if (!isLogged()) {
       console.log("not logged")
       setError({ cod: 'notLogged', msg: 'You need to login with your spotify account'})
       return
@@ -37,7 +37,7 @@ const Trees = () => {
     console.log("opaa")
     // pega os dados (getSpotifyData)
     const rawData = await http.getSpotifyData()
-    const sortedData = data.prepareSpotifyData(rawData.items)
+    const sortedData = data.prepareSpotifyData(rawData)
     console.log(sortedData)
     setSpotifyData(sortedData)
     
@@ -58,7 +58,7 @@ const Trees = () => {
           <If condition={spotifyData.length}>
             {
               spotifyData.map((data) => (
-                <a key={data.id} href={data.url} style={{ margin: '4px 0', backgroundColor: '#dadada', display: "block", padding: '4px', width: `${200 + data.count * 100}px`}}>
+                <a key={data.id} href={data.url} style={{ margin: '4px 0', backgroundColor: '#dadada', display: "block", padding: '4px', width: `${200 + data.variant * 10}px`}}>
                   {data.name} - {data.count}
                 </a>))
             }

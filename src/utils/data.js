@@ -16,8 +16,22 @@ const serializeData = (obj) => {
 }
 
 const prepareSpotifyData = (rawData) => {
+  const { shortTerm, mediumTerm } = rawData
   const data = {}
-  rawData.forEach(({ artists }) => {
+  shortTerm.items.forEach(({ artists }) => {
+    const { external_urls, id, name } = artists[0]
+    if (!data[id]) {
+      data[id] = {
+        url: external_urls.spotify || '',
+        name,
+        id,
+        count: 0
+      }
+    }
+    data[id].count += 1
+  })
+
+  mediumTerm.items.forEach(({ artists }) => {
     const { external_urls, id, name } = artists[0]
     if (!data[id]) {
       data[id] = {
@@ -33,6 +47,11 @@ const prepareSpotifyData = (rawData) => {
   const array = Object.keys(data).map((item) => data[item])
   array.sort((a, b) => {
     if (b.count < a.count ) return -1
+  })
+
+  const maxValue = array[0].count
+  array.forEach((item) => {
+    item.variant = Math.floor((item.count / maxValue) * 100)
   })
   return array
 }

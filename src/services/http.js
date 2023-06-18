@@ -56,8 +56,20 @@ const getSpotifyData = async () => {
     const response = await axios.get(`${BASE_URL}/me/top/tracks?${data.serializeData(query)}`, {
       headers
     })
-    console.log(response.data)
-    return response.data
+
+    const res = {
+      shortTerm: response.data
+    }
+
+    query.time_range = 'medium_term'
+
+    const response2 = await axios.get(`${BASE_URL}/me/top/tracks?${data.serializeData(query)}`, {
+      headers
+    })
+
+    res.mediumTerm = response2.data
+    console.log(res)
+    return res
 
   } catch (error) {
     console.log("---- ERROR -----")
